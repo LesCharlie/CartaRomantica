@@ -1,119 +1,89 @@
-/* Estilos generales */
+/* ✅ Estilos Generales */
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #f0f0f0;
+    background-color: #ffe4e1;
     margin: 0;
     padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    overflow: hidden;
-}
-
-/* Fondo de la página */
-.container {
-    position: relative;
     text-align: center;
-    width: 100%;
-    max-width: 600px; /* Limita el tamaño de la carta en pantallas grandes */
-    margin: 0 auto;
 }
 
-/* Carta cerrada */
+/* ✅ Contenedor Principal */
+.container {
+    width: 90%;
+    max-width: 400px;
+    position: relative;
+}
+
+/* ✅ Imagen de la carta */
 .carta {
     width: 100%;
-    max-width: 400px;
-    margin: 0 auto;
     cursor: pointer;
-    transition: transform 0.5s ease;
-    transform: scale(1);
+    transition: transform 0.5s ease-in-out;
 }
 
-/* Carta abierta */
-.carta-abierta {
-    transform: rotateY(180deg);
-}
-
-/* Texto "Ábreme" */
 .texto-abre {
     font-size: 1.5em;
-    color: #ffffff;
-    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+    font-weight: bold;
+    color: #d91e36;
     position: absolute;
-    top: 20%;
+    top: 15%;
     left: 50%;
     transform: translateX(-50%);
-    font-weight: bold;
-    cursor: pointer;
 }
 
-/* Poema */
-.poema {
-    font-size: 1.2em;
-    color: #d8a7a1; /* Beige intenso */
-    line-height: 1.6;
-    margin-top: 20px;
-    padding: 10px;
-    background-color: rgba(255, 255, 255, 0.8);
+/* ✅ Contenido de la carta (se oculta al inicio) */
+.contenido-carta {
+    display: none;
+    background-color: white;
+    padding: 15px;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
 }
 
-/* Corazón */
+h2 {
+    font-size: 1.5em;
+    color: #ff4081;
+}
+
+.poema {
+    font-size: 1.2em;
+    color: #333;
+    line-height: 1.6;
+    margin-top: 10px;
+    padding: 10px;
+}
+
+/* ❤️ Corazón animado */
 .corazon {
     font-size: 3em;
     color: red;
-    margin-top: 20px;
-    animation: heartBeat 1s infinite;
+    margin-top: 10px;
+    animation: latido 1s infinite;
 }
 
-/* Flores caídas */
-.flor {
-    position: absolute;
-    top: -50px;
-    animation: caer 5s linear infinite;
-    opacity: 0;
+@keyframes latido {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
 }
 
-@keyframes caer {
-    0% {
-        top: -50px;
-        opacity: 1;
-    }
-    100% {
-        top: 100%;
-        opacity: 0;
-    }
-}
-
-/* Animación de latido para el corazón */
-@keyframes heartBeat {
-    0% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.2);
-    }
-    100% {
-        transform: scale(1);
-    }
-}
-
-/* Media Queries para dispositivos móviles */
+/* ✅ Estilos para celular */
 @media (max-width: 600px) {
-    .carta {
-        width: 90%;
-        max-width: 350px;
-    }
     .texto-abre {
         font-size: 1.2em;
         top: 10%;
     }
+
     .poema {
         font-size: 1em;
         padding: 8px;
     }
+
     .corazon {
         font-size: 2.5em;
     }
