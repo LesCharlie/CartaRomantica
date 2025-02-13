@@ -88,3 +88,17 @@ h2 {
         font-size: 2.5em;
     }
 }
+
+.flor {
+    width: 80px;
+    display: block;
+    margin: 10px auto;
+    animation: flotar 2s infinite alternate;
+}
+
+/* Animación para hacer que la flor flote suavemente */
+@keyframes flotar {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-10px); }
+}
+
