@@ -1,0 +1,116 @@
+body {
+    text-align: center;
+    background-color: #ffe6f0;
+    font-family: 'Arial', sans-serif;
+    color: #d63384;
+    overflow: hidden;
+}
+
+.container {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Estilos de la carta */
+.carta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 120px;
+    height: 120px;
+    cursor: pointer;
+    padding: 20px; /* Aumenta el área de detección */
+}
+
+
+
+/* Efecto al pasar el mouse */
+.carta:hover {
+    transform: scale(1.1) rotate(3deg);
+}
+
+/* Corazón y mensaje ocultos */
+.mensaje {
+    position: absolute;
+    top: 30%; /* Más arriba */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.titulo-nombre {
+    font-size: 40px;
+    font-weight: bold;
+    color: #ff1493; /* Rosa intenso */
+}
+
+.poema {
+    font-size: 25px;
+    color: #ff1493; /* Beige */
+    font-weight: bold;
+    line-height: 1.1;
+}
+
+
+
+.corazon {
+    width: 350px;
+}
+
+/* Animación de flores */
+.flor {
+    position: absolute;
+    width: 100px;
+    animation: caer 16s linear forwards;
+}
+
+/* Animación para lanzar flores */
+@keyframes caer {
+    0% { 
+        transform: translateY(-100vh) rotate(0deg); 
+        opacity: 1; 
+    }
+    100% { 
+        transform: translateY(100vh) rotate(360deg); 
+        opacity: 1; 
+    }
+}
+
+.rosa {
+    position: absolute;
+    top: -100px;
+    width: 200px;
+    height: auto;
+    animation: caer 5s linear forwards;
+}
+
+
+
+
+.texto-abreme {
+    position: absolute;
+    top: -20%;  /* Movemos el texto más arriba */
+    font-size: 18px;
+    color: palevioletred;
+    font-weight: bold;
+    text-align: center;
+    width: 100%;
+}
+
+
+/* Efecto de parpadeo */
+@keyframes parpadeo {
+    0% { opacity: 5; }
+    100% { opacity: 0.5; }
+}
+
