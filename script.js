@@ -1,52 +1,16 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const carta = document.getElementById("carta");
-    const mensaje = document.getElementById("mensaje");
-    
+document.addEventListener("DOMContentLoaded", function () {
+    let carta = document.getElementById("carta");
+    let imagenCarta = document.getElementById("imagenCarta");
+    let contenidoCarta = document.getElementById("contenidoCarta");
+
     function abrirCarta() {
-        console.log("Carta tocada"); // Verifica si se activa el evento en la consola
-        carta.innerHTML = '<img src="carta-abierta.png" alt="Carta abierta" class="carta-imagen">';
-
-        // Ocultar el texto "Ábreme"
-        const textoAbreme = document.querySelector(".texto-abreme");
-        if (textoAbreme) textoAbreme.style.display = "none";
-
-        // Mostrar el mensaje después de 1 segundo
-        setTimeout(() => {
-            mensaje.style.opacity = "1";
-        }, 1000);
-
-        // Lanzar flores
-        for (let i = 0; i < 8; i++) {
-            lanzarFlor();
-        }
+        imagenCarta.style.display = "none"; // Esconde la imagen de la carta
+        contenidoCarta.style.display = "block"; // Muestra el contenido de la carta
     }
 
-    // Añadir eventos de clic y toque (para móviles)
+    // 📱 Detectar toque o clic
     carta.addEventListener("click", abrirCarta);
-    carta.addEventListener("touchstart", (e) => {
-        e.preventDefault(); // Evita el doble toque en móviles
-        abrirCarta();
-    });
+    carta.addEventListener("touchstart", abrirCarta);
 });
-
-
-
-function lanzarFlor() {
-    const flor = document.createElement("img");
-    flor.src = "flor.png"; // Usa la imagen correcta
-    flor.classList.add("rosa");
-
-    // Posición aleatoria en la parte superior
-    flor.style.left = Math.random() * window.innerWidth + "px";
-
-    document.body.appendChild(flor);
-
-    // Eliminar la rosa después de caer
-    setTimeout(() => {
-        flor.remove();
-    }, 5000);
-}
-
-
 
 
