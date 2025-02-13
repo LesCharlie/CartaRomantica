@@ -1,116 +1,120 @@
+/* Estilos generales */
 body {
-    text-align: center;
-    background-color: #ffe6f0;
     font-family: 'Arial', sans-serif;
-    color: #d63384;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
     overflow: hidden;
 }
 
+/* Fondo de la página */
 .container {
     position: relative;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-/* Estilos de la carta */
-.carta {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 120px;
-    height: 120px;
-    cursor: pointer;
-    padding: 20px; /* Aumenta el área de detección */
-}
-
-
-
-/* Efecto al pasar el mouse */
-.carta:hover {
-    transform: scale(1.1) rotate(3deg);
-}
-
-/* Corazón y mensaje ocultos */
-.mensaje {
-    position: absolute;
-    top: 30%; /* Más arriba */
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    opacity: 0;
-    transition: opacity 1s ease-in-out;
-}
-
-.titulo-nombre {
-    font-size: 40px;
-    font-weight: bold;
-    color: #ff1493; /* Rosa intenso */
-}
-
-.poema {
-    font-size: 25px;
-    color: #ff1493; /* Beige */
-    font-weight: bold;
-    line-height: 1.1;
-}
-
-
-
-.corazon {
-    width: 350px;
-}
-
-/* Animación de flores */
-.flor {
-    position: absolute;
-    width: 100px;
-    animation: caer 16s linear forwards;
-}
-
-/* Animación para lanzar flores */
-@keyframes caer {
-    0% { 
-        transform: translateY(-100vh) rotate(0deg); 
-        opacity: 1; 
-    }
-    100% { 
-        transform: translateY(100vh) rotate(360deg); 
-        opacity: 1; 
-    }
-}
-
-.rosa {
-    position: absolute;
-    top: -100px;
-    width: 200px;
-    height: auto;
-    animation: caer 5s linear forwards;
-}
-
-
-
-
-.texto-abreme {
-    position: absolute;
-    top: -20%;  /* Movemos el texto más arriba */
-    font-size: 18px;
-    color: palevioletred;
-    font-weight: bold;
     text-align: center;
     width: 100%;
+    max-width: 600px; /* Limita el tamaño de la carta en pantallas grandes */
+    margin: 0 auto;
 }
 
-
-/* Efecto de parpadeo */
-@keyframes parpadeo {
-    0% { opacity: 5; }
-    100% { opacity: 0.5; }
+/* Carta cerrada */
+.carta {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    cursor: pointer;
+    transition: transform 0.5s ease;
+    transform: scale(1);
 }
 
+/* Carta abierta */
+.carta-abierta {
+    transform: rotateY(180deg);
+}
+
+/* Texto "Ábreme" */
+.texto-abre {
+    font-size: 1.5em;
+    color: #ffffff;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Poema */
+.poema {
+    font-size: 1.2em;
+    color: #d8a7a1; /* Beige intenso */
+    line-height: 1.6;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Corazón */
+.corazon {
+    font-size: 3em;
+    color: red;
+    margin-top: 20px;
+    animation: heartBeat 1s infinite;
+}
+
+/* Flores caídas */
+.flor {
+    position: absolute;
+    top: -50px;
+    animation: caer 5s linear infinite;
+    opacity: 0;
+}
+
+@keyframes caer {
+    0% {
+        top: -50px;
+        opacity: 1;
+    }
+    100% {
+        top: 100%;
+        opacity: 0;
+    }
+}
+
+/* Animación de latido para el corazón */
+@keyframes heartBeat {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Media Queries para dispositivos móviles */
+@media (max-width: 600px) {
+    .carta {
+        width: 90%;
+        max-width: 350px;
+    }
+    .texto-abre {
+        font-size: 1.2em;
+        top: 10%;
+    }
+    .poema {
+        font-size: 1em;
+        padding: 8px;
+    }
+    .corazon {
+        font-size: 2.5em;
+    }
+}
